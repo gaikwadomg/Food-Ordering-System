@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --dark-blue: #0056b3;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: var(--primary-blue);
+        }
+        .btn-primary {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+        .btn-primary:hover {
+            background-color: var(--dark-blue);
+            border-color: var(--dark-blue);
+        }
+        .card {
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+        .card-header {
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: bold;
+        }
+        .payment-option {
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .payment-option:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 123, 255, 0.1);
+        }
+        .payment-option.selected {
+            border-color: var(--primary-blue);
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Payment Gateway</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-house-door"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-credit-card"></i> Payment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Support</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 class="mb-4 text-center">Choose Payment Method</h1>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        Payment Options
+                    </div>
+                    <div class="card-body">
+                        <div class="payment-option selected">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" checked>
+                                <label class="form-check-label" for="creditCard">
+                                    <i class="bi bi-credit-card me-2"></i> Credit Card
+                                </label>
+                            </div>
+                        </div>
+                        <div class="payment-option">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="paypal">
+                                <label class="form-check-label" for="paypal">
+                                    <i class="bi bi-paypal me-2"></i> PayPal
+                                </label>
+                            </div>
+                        </div>
+                        <div class="payment-option">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="bankTransfer">
+                                <label class="form-check-label" for="bankTransfer">
+                                    <i class="bi bi-bank me-2"></i> Bank Transfer
+                                </label>
+                            </div>
+                        </div>
+                        <div id="creditCardForm" class="mt-4">
+                            <h5 class="mb-3">Credit Card Details</h5>
+                            <div class="mb-3">
+                                <label for="cardNumber" class="form-label">Card Number</label>
+                                <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="expiryDate" class="form-label">Expiry Date</label>
+                                    <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cvv" class="form-label">CVV</label>
+                                    <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cardName" class="form-label">Name on Card</label>
+                                <input type="text" class="form-control" id="cardName" placeholder="John Doe" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Total Amount: $99.99</h5>
+                            <button class="btn btn-primary">Pay Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input[type="radio"]').checked = true;
+            });
+        });
+    </script>
+</body>
+</html>

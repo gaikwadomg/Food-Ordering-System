@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart - Food Ordering</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #28a745;
+            --dark-green: #1e7e34;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: var(--dark-green);
+        }
+        .btn-primary {
+            background-color: var(--primary-green);
+            border-color: var(--primary-green);
+        }
+        .btn-primary:hover {
+            background-color: var(--dark-green);
+            border-color: var(--dark-green);
+        }
+        .card {
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+        .card-header {
+            background-color: var(--primary-green);
+            color: white;
+            font-weight: bold;
+        }
+        .list-group-item {
+            border-left: none;
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Food Order</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-house-door"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-menu-button-wide"></i> Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-cart"></i> Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 class="mb-4 text-center">Your Cart</h1>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Cart Items
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="my-0">Veggie Supreme Pizza</h6>
+                                    <small class="text-muted">Large</small>
+                                </div>
+                                <span class="text-muted">$12.99</span>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-secondary">-</button>
+                                <span class="mx-2">1</span>
+                                <button class="btn btn-sm btn-outline-secondary">+</button>
+                                <button class="btn btn-sm btn-outline-danger ms-3">Remove</button>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="my-0">Caesar Salad</h6>
+                                    <small class="text-muted">Regular</small>
+                                </div>
+                                <span class="text-muted">$8.99</span>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-secondary">-</button>
+                                <span class="mx-2">1</span>
+                                <button class="btn btn-sm btn-outline-secondary">+</button>
+                                <button class="btn btn-sm btn-outline-danger ms-3">Remove</button>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="my-0">Garlic Breadsticks</h6>
+                                    <small class="text-muted">6 pieces</small>
+                                </div>
+                                <span class="text-muted">$4.99</span>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-secondary">-</button>
+                                <span class="mx-2">1</span>
+                                <button class="btn btn-sm btn-outline-secondary">+</button>
+                                <button class="btn btn-sm btn-outline-danger ms-3">Remove</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        Order Summary
+                    </div>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-8">Subtotal:</dt>
+                            <dd class="col-sm-4 text-end">$26.97</dd>
+                            
+                            <dt class="col-sm-8">Tax (8%):</dt>
+                            <dd class="col-sm-4 text-end">$2.16</dd>
+                            
+                            <dt class="col-sm-8">Delivery Fee:</dt>
+                            <dd class="col-sm-4 text-end">$3.99</dd>
+                        </dl>
+                        <hr>
+                        <dl class="row">
+                            <dt class="col-sm-8">Total:</dt>
+                            <dd class="col-sm-4 text-end"><strong>$33.12</strong></dd>
+                        </dl>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="button">Proceed to Checkout</button>
+                            <button class="btn btn-outline-secondary" type="button">Continue Shopping</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
